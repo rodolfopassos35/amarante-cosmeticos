@@ -1,0 +1,135 @@
+/* Sidebar */
+
+.sidebarProdutos {
+    flex-shrink: 0; /* Impede que a sidebar encolha se não houver espaço */
+    width: 220px; /* Largura fixa da sua sidebar */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.sidebarProdutos h2 {
+    margin: 10px;
+}
+
+.sidebarProdutos h3 {
+    margin: 10px;
+    color: #333;
+}
+
+.sidebarProdutos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebarProdutos ul li {
+    margin-bottom: 10px;
+}
+
+.sidebarProdutos ul li a {
+    text-decoration: none;
+    color: #555;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.sidebarProdutos ul li a:hover {
+    color: #007bff;
+}
+.sidebarProdutos input[type="text"],
+.sidebarProdutos input[type="range"] {
+    width: 100%;
+    margin: 10px;
+}
+
+/* Container Produtos */
+
+
+
+/* --- Layout Principal da Página de Produtos (entre sidebar e área de produtos) --- */
+.pagina-produtos {
+    display: flex;
+    max-width: 1200px; /* Exemplo: define uma largura máxima para o conteúdo principal */
+    margin: 20px auto; /* Centraliza a página e dá margem no topo/base */
+    gap: 30px; /* Espaço entre a sidebar e a área de produtos */
+    padding: 0 15px; /* Adiciona um pequeno padding nas laterais */
+    height: auto;
+}
+
+/* --- O Contêiner das Imagens (onde as 'figure's quebrarão a linha) --- */
+.pagina-produtos .agrupaProdutosDestaque {
+    flex-grow: 1; /* Permite que este elemento ocupe o espaço restante ao lado da sidebar */
+
+    /* ***** AQUI ESTÁ A CHAVE DA SOLUÇÃO ***** */
+    display: flex;      /* Torna este contêiner flexível */
+    flex-wrap: wrap;    /* Permite que os filhos (as 'figure's) quebrem para a próxima linha */
+    justify-content: flex-start; /* Alinha as figuras à esquerda */
+    gap: 20px;          /* Espaçamento entre as figuras */
+    height: auto;
+}
+
+/* --- Estilos das 'figure's Individuais --- */
+/* --- Layout Principal da Página de Produtos (entre sidebar e área de produtos) --- */
+
+
+/* --- Estilos da Sidebar (sem alterações) --- */
+.sidebarProdutos {
+    flex-shrink: 0;
+    width: 220px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- O Contêiner das Imagens (onde as 'figure's quebrarão a linha) --- */
+.pagina-produtos .agrupaProdutosDestaque {
+    flex-grow: 1; /* Permite que este elemento ocupe o espaço restante ao lado da sidebar */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    gap: 20px;
+    width: calc(100% /3);
+}
+
+/* --- Estilos das 'figure's Individuais (CORREÇÃO AQUI!) --- */
+.pagina-produtos .agrupaProdutosDestaque figure {
+    flex: 1 1 250px;
+    box-sizing: border-box; 
+    text-align: center; 
+}
+
+.pagina-produtos .agrupaProdutosDestaque figure img {
+    height: 230px;
+    width: 100%; /* Imagem preenche a largura da figure */
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Os demais estilos de h3, p, a dentro da figure estão corretos e podem permanecer */
+.pagina-produtos .agrupaProdutosDestaque figure h3 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.pagina-produtos .agrupaProdutosDestaque figure p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.pagina-produtos .agrupaProdutosDestaque figure button {
+    display: inline-block;
+    background-color: #e72c6e;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 95%;
+}
+
+.pagina-produtos .agrupaProdutosDestaque figure button:hover {
+    background-color: #ff0059;
+}

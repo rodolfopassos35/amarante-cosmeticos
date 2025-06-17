@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/style-home.css" />
+  <link rel="stylesheet" href="css/style-carrinho.css">
+  <title>Carrinho - Amarante Cosméticos</title>
+</head>
+<body>
+  <header class="topo" id="header-placeholder"></header>
+
+  <main class="container-carrinho">
+    <section class="secao-itens-carrinho">
+      <h1>Seu Carrinho</h1>
+      <div id="itensCarrinho" class="lista-itens-carrinho"></div>
+    </section>
+
+    <aside class="resumo-carrinho">
+      <div class="calculo-frete-container">
+        <h3>Calcular Frete</h3>
+        <label for="cep-entrega">CEP para entrega:</label>
+        <input type="text" id="cep-entrega" placeholder="Ex: 00000-000" maxlength="9">
+        <button id="btn-calcular-frete">Calcular Frete</button>
+        <p id="valor-frete"></p>
+      </div>
+
+      <div class="total-carrinho">
+        <h3>Total da Compra:</h3>
+        <p id="valor-total-carrinho">R$ 0,00</p>
+      </div>
+
+      <div class="acoes-carrinho">
+        <button id="limpar-carrinho" class="btn-secundario">Limpar carrinho</button>
+        <button id="finalizar-compra" class="btn-primario">Finalizar Compra</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="rodaPe" id="footer-placeholder"></footer>
+
+  <script src="js/carrinho.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
