@@ -21,7 +21,7 @@
 }
 .pagina-sobre .nossaHistoria p {
     font-size: 1.5rem;
-    width: 800px;
+    max-width: 800px;
     margin: 0 auto;
 }
 .sobreEmpresa {
@@ -159,4 +159,33 @@
         min-height: 430px;
         max-height: 500px;
     }
+}
+@media (max-width:480px) {
+    .sobreEmpresa {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .sobreEmpresa > div {
+        padding: 20px;
+        height: auto;
+        text-align: start;
+    }
+    .sobreEmpresa  h2 {
+        padding-bottom: 10px;
+    }
+    .sobreEmpresa p {
+        line-height: 25px;
+        margin-bottom: 20px;
+    }
+    .sobre-valores {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .sobre-valores .nossosValores {
+        width: 100%;
+        height: auto;
+    }
+    
 }
