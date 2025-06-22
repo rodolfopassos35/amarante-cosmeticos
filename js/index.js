@@ -1,21 +1,33 @@
-async function incluirComponente(seletor, arquivo) {
-    try { // Bloco TRY: tenta executar o código
-        const resp = await fetch(arquivo);
-        // Verifica se a resposta HTTP foi bem-sucedida (status 2xx)
-        if (!resp.ok) {
-            // Se não foi, lança um erro para ser capturado pelo catch
-            throw new Error(`HTTP error! status: ${resp.status}`);
-        }
-        const html = await resp.text();
-            document.querySelector(seletor).innerHTML = html;
-        } catch (error) { // Bloco CATCH: captura e lida com erros
-            console.error(`Erro ao carregar o componente ${arquivo}:`, error);
-        }
-}
-    
-    incluirComponente('#header-placeholder', 'componentes/header.html');
-    incluirComponente('#footer-placeholder', 'componentes/footer.html'); 
+async function incluirComponente(id, url) {
+  const elemento = document.getElementById(id);
+  if (!elemento) {
+    console.warn(`Elemento com ID '${id}' não encontrado.`);
+    return;
+  }
 
-    document.querySelector(".menu-toggle").addEventListener("click", function() {
-    document.querySelector(".linksNavegacao").classList.toggle("ativo");
-});
+  try {
+    const resposta = await fetch(url);
+    const conteudo = await resposta.text();
+    elemento.innerHTML = conteudo;
+
+    // Se o header for carregado, aplica o menu hamburguer
+    if (id === "header-placeholder") {
+      const toggleButton = document.querySelector(".menu-toggle");
+      const menuNavegacao = document.getElementById("menuNavegacao");
+
+      if (toggleButton && menuNavegacao) {
+        toggleButton.addEventListener("click", function () {
+          menuNavegacao.classList.toggle("ativo");
+        });
+      }
+    }
+
+  } catch (erro) {
+    console.error(`Erro ao carregar o componente ${url}:`, erro);
+  }
+}
+
+// Chamada para incluir os componentes
+incluirComponente("header-placeholder", "componentes/header.html");
+incluirComponente("footer-placeholder", "componentes/footer.html");
+

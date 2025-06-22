@@ -26,6 +26,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 .linksTopo a {
     text-decoration: none;
@@ -45,6 +46,13 @@
 }
 .linksNavegacao a:hover {
     color:#E080A2;
+}
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 /* estilização Banner */
@@ -382,14 +390,16 @@ figcaption a::before {
     transform: translateX(-50%)
 } 
 @media (max-width: 1024px) {
+    .index-principal {
+        height: auto;
+    }
     /* Header */
     .linksNavegacao a {
-        padding: 0 10px; /* Reduz o padding dos links de navegação */
+        padding: 0 10px; 
     }
     .logo a {
         font-size: 24px; /* Diminui o tamanho da logo */
     }
-
     /* Banner */
     .tituloBanner {
         font-size: 38px;
@@ -517,14 +527,15 @@ figcaption a::before {
 
     /* Produtos em Destaque */
 
-   /*  .secaoProdutosDestaque {
-        border: 2px solid red;
-        height: fit-content;
-    } */
+    .secaoProdutosDestaque {
+        height: auto;
+    }
+
     .cabecalhoProdutosDestaque {
-        flex-direction: column;
+        flex-direction: row;
         height: auto;
         padding: 15px 0;
+        justify-content: space-between;
     }
     .agrupaProdutosDestaque figure {
         width: 90%; /* Apenas 1 item por linha */
@@ -532,15 +543,17 @@ figcaption a::before {
         margin-bottom: 20px; /* Espaço entre eles */
     }
     .agrupaProdutosDestaque {
-        flex-direction: column; /* Garante empilhamento */
+        flex-direction: row;
         align-items: center; /* Centraliza as figuras */
         gap: 20px;
+        height: auto;
     }
     figcaption button {
         width: 95%; /* Garante que o botão preencha a figure */
     }
 
     /* Seção Categorias */
+
     .imagens-linksCategorias {
         flex-direction: column; /* Empilha as categorias */
         align-items: center;
@@ -681,43 +694,37 @@ figcaption a::before {
 /* Para telas menores que 480px (smartphones menores) */
 
 @media screen and (max-width: 480px) {
-     .linksTopo {
-        flex-direction: column;
-        align-items: center;
+    .carrinho img {
         position: relative;
+        top: 10px;
+        right: -300%;
+        background-color: #a957c750;
+        border-radius: 50px;
+    }
+    .linksTopo {        
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100px;
     }
 
     .linksNavegacao {
-        display: none; /* Oculta o menu por padrão */
-        flex-direction: column;
+        display: flex; 
         align-items: center;
-        position: absolute;
-        top: 60px;
+        position: relative;
+        top: 10px;
         left: 0;
         width: 100%;
-        background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.384);
     }
-    .linksNavegacao.ativo {
-    display: flex; 
-    }
+   
     .linksNavegacao a {
-        padding: 15px;
+        padding: 5px;
         width: 100%;
         text-align: center;
-        display: block;
+       /*  display: block; */
+       font-size: 1rem;
     }
 
-    .menu-toggle {
-        display: block;
-        font-size: 28px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
     .tituloBanner {
         font-size: 2rem;
     }
@@ -769,6 +776,7 @@ figcaption a::before {
         flex-direction: column;
         justify-content: space-between;
         flex: 1;
+    
     }
     .agrupaProdutosDestaque figcaption p {
         margin: 0.25rem 0;
