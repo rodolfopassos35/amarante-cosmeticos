@@ -6,7 +6,7 @@ const tabelaFrete = {
   '13170-000': { preco: 10.00, prazo: '2 dias úteis', regiao: 'Campinas' },
   '01000-000': { preco: 25.00, prazo: '5 dias úteis', regiao: 'São Paulo Capital' },
   '20000-000': { preco: 35.00, prazo: '7 dias úteis', regiao: 'Rio de Janeiro Capital' },
-  '13179003' : {preco:7.00, prazo: '2 dias úteis', regiao: 'sumaré, nova veneza'}
+  '13179003': { preco: 7.00, prazo: '2 dias úteis', regiao: 'sumaré, nova veneza' }
 };
 
 function formatarCEP(cep) {
@@ -32,7 +32,7 @@ let valorFreteAtual = 0; // Variável para armazenar o valor do frete calculado
 
 // --- NOVA FUNÇÃO PARA ADICIONAR PRODUTOS ---
 // Torna esta função global para ser acessível de outros scripts
-window.adicionarProdutoAoCarrinho = function(novoProduto) {
+window.adicionarProdutoAoCarrinho = function (novoProduto) {
   let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   const produtoExistenteIndex = carrinho.findIndex(item => item.id === novoProduto.id);
 
@@ -101,7 +101,7 @@ function exibirCarrinho() {
       document.getElementById('valor-frete').textContent = '';
     }
     if (valorTotalCarrinhoElement) {
-        valorTotalCarrinhoElement.textContent = 'R$ 0,00'; // Reseta o total exibido
+      valorTotalCarrinhoElement.textContent = 'R$ 0,00'; // Reseta o total exibido
     }
     return;
   }
@@ -116,7 +116,7 @@ function exibirCarrinho() {
 
   let subtotalProdutos = 0;
   carrinho.forEach((item, index) => {
-     console.log('Caminho da imagem do item:', item.imagem);
+    console.log('Caminho da imagem do item:', item.imagem);
     const subtotalItem = item.preco * item.quantidade;
     subtotalProdutos += subtotalItem;
 
@@ -139,7 +139,7 @@ function exibirCarrinho() {
       <button class="btn-remover-item" data-index="${index}">Remover</button>
     `;
     if (itensCarrinhoDiv) { // Verifica se o elemento existe antes de adicionar
-        itensCarrinhoDiv.appendChild(itemDiv);
+      itensCarrinhoDiv.appendChild(itemDiv);
     }
   });
 
@@ -155,113 +155,113 @@ function exibirCarrinho() {
 
 // --- Funções de Ativação de Botões (adaptadas para o novo HTML) ---
 function ativarBotoes() {
-    document.querySelectorAll('.btn-quantidade').forEach(btn => {
-        btn.onclick = null; // Remove listeners antigos para evitar duplicação
-        btn.addEventListener('click', (e) => {
-            const index = e.target.dataset.index;
-            const action = e.target.dataset.action;
-            if (action === 'incrementar') {
-                alterarQuantidade(index, 1);
-            } else if (action === 'decrementar') {
-                alterarQuantidade(index, -1);
-            }
-        });
+  document.querySelectorAll('.btn-quantidade').forEach(btn => {
+    btn.onclick = null; // Remove listeners antigos para evitar duplicação
+    btn.addEventListener('click', (e) => {
+      const index = e.target.dataset.index;
+      const action = e.target.dataset.action;
+      if (action === 'incrementar') {
+        alterarQuantidade(index, 1);
+      } else if (action === 'decrementar') {
+        alterarQuantidade(index, -1);
+      }
     });
+  });
 
-    document.querySelectorAll('.btn-remover-item').forEach(btn => {
-        btn.onclick = null; // Remove listeners antigos
-        btn.addEventListener('click', (e) => {
-            const index = e.target.dataset.index;
-            removerItem(index);
-        });
+  document.querySelectorAll('.btn-remover-item').forEach(btn => {
+    btn.onclick = null; // Remove listeners antigos
+    btn.addEventListener('click', (e) => {
+      const index = e.target.dataset.index;
+      removerItem(index);
     });
+  });
 }
 
 
 // --- Event Listeners DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Lógica para o cálculo de frete ---
-    const inputCepEntrega = document.getElementById('cep-entrega');
-    const btnCalcularFrete = document.getElementById('btn-calcular-frete');
-    const valorFreteElement = document.getElementById('valor-frete');
+  // --- Lógica para o cálculo de frete ---
+  const inputCepEntrega = document.getElementById('cep-entrega');
+  const btnCalcularFrete = document.getElementById('btn-calcular-frete');
+  const valorFreteElement = document.getElementById('valor-frete');
 
-    if (inputCepEntrega) {
-      inputCepEntrega.addEventListener('input', (e) => {
-        e.target.value = formatarCEP(e.target.value);
-      });
-    }
+  if (inputCepEntrega) {
+    inputCepEntrega.addEventListener('input', (e) => {
+      e.target.value = formatarCEP(e.target.value);
+    });
+  }
 
-    if (btnCalcularFrete) {
-      btnCalcularFrete.addEventListener('click', () => {
-        const cep = inputCepEntrega.value;
-        if (cep.length === 9) {
-          const resultadoFrete = calcularFrete(cep);
+  if (btnCalcularFrete) {
+    btnCalcularFrete.addEventListener('click', () => {
+      const cep = inputCepEntrega.value;
+      if (cep.length === 9) {
+        const resultadoFrete = calcularFrete(cep);
 
-          if (resultadoFrete.preco !== null) {
-            valorFreteAtual = resultadoFrete.preco;
-            valorFreteElement.innerHTML = `Frete: R$ ${resultadoFrete.preco.toFixed(2).replace('.', ',')} (${resultadoFrete.prazo})`;
-            exibirCarrinho(); // Atualiza a exibição com o frete
-          } else {
-            valorFreteAtual = 0;
-            valorFreteElement.innerHTML = `<span style="color: red;">${resultadoFrete.erro}</span>`;
-            exibirCarrinho(); // Atualiza a exibição sem frete
-          }
+        if (resultadoFrete.preco !== null) {
+          valorFreteAtual = resultadoFrete.preco;
+          valorFreteElement.innerHTML = `Frete: R$ ${resultadoFrete.preco.toFixed(2).replace('.', ',')} (${resultadoFrete.prazo})`;
+          exibirCarrinho(); // Atualiza a exibição com o frete
         } else {
-          alert('Por favor, digite um CEP válido com 8 dígitos.');
           valorFreteAtual = 0;
-          if (valorFreteElement) valorFreteElement.textContent = '';
-          exibirCarrinho(); // Atualiza a exibição
+          valorFreteElement.innerHTML = `<span style="color: red;">${resultadoFrete.erro}</span>`;
+          exibirCarrinho(); // Atualiza a exibição sem frete
         }
+      } else {
+        alert('Por favor, digite um CEP válido com 8 dígitos.');
+        valorFreteAtual = 0;
+        if (valorFreteElement) valorFreteElement.textContent = '';
+        exibirCarrinho(); // Atualiza a exibição
+      }
+    });
+  }
+
+  // --- Lógica do botão Finalizar Compra ---
+  const botaoFinalizarCompra = document.getElementById('finalizar-compra');
+  if (botaoFinalizarCompra) {
+    botaoFinalizarCompra.addEventListener('click', () => {
+      const carrinhoAtual = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+      if (carrinhoAtual.length === 0) {
+        alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra!');
+        return;
+      }
+
+      let subtotalProdutosCalculado = 0;
+      carrinhoAtual.forEach(item => {
+        subtotalProdutosCalculado += item.preco * item.quantidade;
       });
-    }
 
-    // --- Lógica do botão Finalizar Compra ---
-    const botaoFinalizarCompra = document.getElementById('finalizar-compra');
-    if (botaoFinalizarCompra) {
-      botaoFinalizarCompra.addEventListener('click', () => {
-        const carrinhoAtual = JSON.parse(localStorage.getItem('carrinho')) || [];
+      // Verifica se o frete foi calculado antes de finalizar, se o campo de CEP não estiver vazio
+      if (inputCepEntrega.value.length === 9 && valorFreteAtual === 0) {
+        alert('Por favor, aguarde o cálculo do frete ou verifique seu CEP.');
+        return;
+      }
+      if (inputCepEntrega.value.length < 9 && subtotalProdutosCalculado > 0) {
+        alert('Por favor, informe e calcule o frete para seu CEP antes de finalizar a compra.');
+        inputCepEntrega.focus();
+        return;
+      }
 
-        if (carrinhoAtual.length === 0) {
-          alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra!');
-          return;
-        }
+      const totalComFrete = subtotalProdutosCalculado + valorFreteAtual;
 
-        let subtotalProdutosCalculado = 0;
-        carrinhoAtual.forEach(item => {
-          subtotalProdutosCalculado += item.preco * item.quantidade;
-        });
+      alert(`Parabéns! Sua compra no valor total de R$ ${totalComFrete.toFixed(2).replace('.', ',')} foi finalizada com sucesso! Agradecemos a preferência.`);
 
-        // Verifica se o frete foi calculado antes de finalizar, se o campo de CEP não estiver vazio
-        if (inputCepEntrega.value.length === 9 && valorFreteAtual === 0) {
-            alert('Por favor, aguarde o cálculo do frete ou verifique seu CEP.');
-            return;
-        }
-        if (inputCepEntrega.value.length < 9 && subtotalProdutosCalculado > 0) {
-            alert('Por favor, informe e calcule o frete para seu CEP antes de finalizar a compra.');
-            inputCepEntrega.focus();
-            return;
-        }
+      localStorage.removeItem('carrinho');
+      exibirCarrinho();
+    });
+  }
 
-        const totalComFrete = subtotalProdutosCalculado + valorFreteAtual;
-
-        alert(`Parabéns! Sua compra no valor total de R$ ${totalComFrete.toFixed(2).replace('.', ',')} foi finalizada com sucesso! Agradecemos a preferência.`);
-
+  // --- Lógica do botão Limpar Carrinho ---
+  const botaoLimparCarrinho = document.getElementById('limpar-carrinho');
+  if (botaoLimparCarrinho) {
+    botaoLimparCarrinho.addEventListener('click', () => {
+      if (confirm('Tem certeza que deseja limpar o carrinho?')) {
         localStorage.removeItem('carrinho');
         exibirCarrinho();
-      });
-    }
+      }
+    });
+  }
 
-    // --- Lógica do botão Limpar Carrinho ---
-    const botaoLimparCarrinho = document.getElementById('limpar-carrinho');
-    if (botaoLimparCarrinho) {
-      botaoLimparCarrinho.addEventListener('click', () => {
-        if (confirm('Tem certeza que deseja limpar o carrinho?')) {
-            localStorage.removeItem('carrinho');
-            exibirCarrinho();
-        }
-      });
-    }
-
-    // Garante que o carrinho seja exibido ao carregar a página
-    exibirCarrinho();
+  // Garante que o carrinho seja exibido ao carregar a página
+  exibirCarrinho();
 });

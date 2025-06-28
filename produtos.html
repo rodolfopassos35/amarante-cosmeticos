@@ -1,189 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produtos - Minha Loja</title>
-  <link rel="stylesheet" href="css/style-produtos.css">
-  <link rel="stylesheet" href="css/style-home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Minha Loja</title>
+    <link rel="stylesheet" href="css/style-produtos.css">
+    <link rel="stylesheet" href="css/style-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body> 
-  
-  <header class="topo" id="header-placeholder"></header> 
-  
-  <main class="pagina-produtos">
-    <aside class="sidebarProdutos">
-      <h2>Filtros</h2>
 
-      <!-- Busca por nome -->
-      <label for="buscaNome">Buscar produto:</label>
-      <input type="text" id="buscaNome" placeholder="Digite o nome">
+<body>
 
-          <!-- Categoria -->
-      <h3>Categorias</h3>
-      <ul>
-        <li><a href="#" data-categoria="todos">Todos</a></li>
-        <li><a href="#" data-categoria="maquiagem">Maquiagem</a></li>
-        <li><a href="#" data-categoria="skincare">Skincare</a></li>
-        <li><a href="#" data-categoria="cabelo">Cabelo</a></li> 
-        <li><a href="#" data-categoria="corpo">Corpo</a></li>
-        <li><a href="#" data-categoria="perfume">Perfumes</a></li>
-      </ul>
+    <header class="topo" id="header-placeholder"></header>
 
-      <!-- Faixa de Preço -->
-      <h4>Preço máximo</h4>
-      <input type="range" id="filtroPreco" min="0" max="1000" value="1000">
-      <p>Até R$ <span id="valorPreco">1000</span></p>
-    </aside>
+    <main class="pagina-produtos">
+        <aside class="sidebarProdutos">
+            <h2>Filtros</h2>
+
+            <!-- Busca por nome -->
+            <label for="buscaNome">Buscar produto:</label>
+            <input type="text" id="buscaNome" placeholder="Digite o nome">
+
+            <!-- Categoria -->
+            <h3>Categorias</h3>
+            <ul>
+                <li><a href="#" data-categoria="todos">Todos</a></li>
+                <li><a href="#" data-categoria="maquiagem">Maquiagem</a></li>
+                <li><a href="#" data-categoria="skincare">Skincare</a></li>
+                <li><a href="#" data-categoria="cabelo">Cabelo</a></li>
+                <li><a href="#" data-categoria="corpo">Corpo</a></li>
+                <li><a href="#" data-categoria="perfume">Perfumes</a></li>
+            </ul>
+
+            <!-- Faixa de Preço -->
+            <h4>Preço máximo</h4>
+            <input type="range" id="filtroPreco" min="0" max="1000" value="1000">
+            <p>Até R$ <span id="valorPreco">1000</span></p>
+        </aside>
 
 
-    <section class="agrupaProdutosDestaque">
-      <figure data-categoria="maquiagem" data-preco="15.00"> 
-        <img src="assets/pinceis.jpeg" alt="Pincéis">
-        <figcaption>
-          <h3>Pincéis</h3>
-          <p>kIT COM 4 PINCÉIS.</p>
-          <span>R$: 15.00</span>
-          <button class="btn-add-carrinho"
-            data-id="1"
-            data-nome="Pinceis"
-            data-preco="15.00"
-            data-img="assets/pinceis.jpeg"
-            >Adicionar item ao carrinho
-          </button>
+        <section class="agrupaProdutosDestaque">
+            <figure data-categoria="maquiagem" data-preco="15.00">
+                <img src="assets/pinceis.jpeg" alt="Pincéis">
+                <figcaption>
+                    <h3>PINCÉIS</h3>
+                    <p>KIT COM 4 PINCÉIS.</p>
+                    <p class="invisivel">→</p>
+                    <p class="invisivel">→</p>
+                    <span>R$: 15.00</span>
+                    <button class="btn-add-carrinho" data-id="1" data-nome="Pinceis" data-preco="15.00"
+                        data-img="assets/pinceis.jpeg">Adicionar item ao carrinho
+                    </button>
 
-        </figcaption>
-      </figure>
+                </figcaption>
+            </figure>
 
-      <figure data-categoria="maquiagem" data-preco="10.00"> 
-        <img src="assets/lip-tint.jpeg" alt="Lip Tint">  
-        <figcaption>
-          <h3>LIP TINT</h3>
-          <p>3 em 1 ROSA MOSQUETA <br>
-            ÁCIDO HIALURÔNICO<br>
-            D-PANTENOL
-          </p> 
-          <span>R$: 10.00</span>         
-          <button class="btn-add-carrinho"
-            data-id="2" 
-            data-nome="Lip Tint" 
-            data-preco="10.00"
-            data-img="assets/lip-tint.jpeg"
-            >Adicionar item ao carrinho
-          </button>
-        </figcaption>
-      </figure>
-  
-      <figure data-categoria="maquiagem" data-preco="20.00"> 
-        <img src="assets/base-liquida.jpeg" alt="Base Liquida">
-        <figcaption>
-          <h3>BASE LIQUIDA</h3>
-          <p>EFEITO MATTE<br>
-            COR 2
-          </p>
-          <span>R$: 20.00</span>
-          <button class="btn-add-carrinho" 
-            data-id="3" 
-            data-nome="Base Liquida" 
-            data-preco="20.00"
-            data-img="assets/base-liquida.jpeg"
-            >Adicionar item ao carrinho
-          </button>
-        </figcaption>
-      </figure>
+            <figure data-categoria="maquiagem" data-preco="10.00">
+                <img src="assets/lip-tint.jpeg" alt="Lip Tint">
+                <figcaption>
+                    <h3>LIP TINT</h3>
+                    <p>3 em 1 ROSA MOSQUETA</p>
+                    <p>ÁCIDO HIALURÔNICO</p>
+                    <p>D-PANTENOL</p>
 
-      <figure data-categoria="maquiagem" data-preco="10.00">
-        <img src="assets/batom.jpeg" alt="Batom">
-        <figcaption>
-          <h3>BATOM</h3>
-          <p>descrição do produto.</p>
-          <span>R$: 10.00</span>
-          <button class="btn-add-carrinho" 
-            data-id="4" 
-            data-nome="Batom" 
-            data-preco="10.00"
-            data-img="assets/batom.jpeg"
-            >Adicionar item ao carrinho
-          </button>
 
-        </figcaption>
-      </figure>
 
-      <figure data-categoria="maquiagem" data-preco="30.00"> 
-        <img src="assets/paleta.jpeg" alt="Paleta">
-        <figcaption>
-          <h3>PALETA</h3>
-          <p>BLUSH<br>
-            ILUMINADOR<br>
-            CONTORNO
-          </p>
-          <span>R$: 30.00</span>
-          <button class="btn-add-carrinho" 
-            data-id="5" 
-            data-nome="Paleta" 
-            data-preco="30.00"
-            data-img="assets/paleta.jpeg">
-            Adicionar item ao carrinho
-          </button>
-        </figcaption>
-      </figure>
-  
-      <figure data-categoria="maquiagem" data-preco="20.00">
-        <img src="assets/rimel.jpeg" alt="rimel">
-        <figcaption>
-          <h3>RIMEL</h3>
-          <span>R$: 20.00</span>
-          <button class="btn-add-carrinho" 
-            data-id="6" 
-            data-nome="rimel" 
-            data-preco="20.00"
-            data-img="assets/rimel.jpeg"
-            >Adicionar item ao carrinho
-          </button>
+                    </p>
+                    <span>R$: 10.00</span>
+                    <button class="btn-add-carrinho" data-id="2" data-nome="Lip Tint" data-preco="10.00"
+                        data-img="assets/lip-tint.jpeg">Adicionar item ao carrinho
+                    </button>
+                </figcaption>
+            </figure>
 
-          </figcaption>
-      </figure>
-  
-      <figure data-categoria="skincare" data-preco="20.00"> 
-        <img src="assets/sobonete-facial.jpeg" alt="Sabonete Facial">
-        <figcaption>
-          <h3>SABONETE FACIAL</h3>
-          <p>CHEIRINHO DE TUTTI FRUTTI</p>
-          <span>R$: 20.00</span>
-          <button class="btn-add-carrinho" 
-            data-id="7" 
-            data-nome="Sabonete Facial" 
-            data-preco="20.00"
-            data-img="assets/sobonete-facial.jpeg"
-            >Adicionar item ao carrinho
-          </button>
+            <figure data-categoria="maquiagem" data-preco="20.00">
+                <img src="assets/base-liquida.jpeg" alt="Base Liquida">
+                <figcaption>
+                    <h3>BASE LIQUIDA</h3>
+                    <p>EFEITO MATTE</p>
+                    <p>COR 2</p>
+                    <p class="invisivel">→</p>
+                    <span>R$: 20.00</span>
+                    <button class="btn-add-carrinho" data-id="3" data-nome="Base Liquida" data-preco="20.00"
+                        data-img="assets/base-liquida.jpeg">Adicionar item ao carrinho
+                    </button>
+                </figcaption>
+            </figure>
 
-        </figcaption>
-      </figure>
-  
-      <figure data-categoria="skincare" data-preco="10.00"> 
-        <img src="assets/esponja-silicone.jpeg" alt="Esponja de silicone">
-        <figcaption>
-          <h3>ESPONJA DE SILICONE</h3>
-          <p>LIMPEZA FACIAL POUVO</p>
-          <span>R$: 10.00</span>
-          <button class="btn-add-carrinho" 
-            data-id="8" 
-            data-nome="Esponja Silicone" 
-            data-preco="10.00"
-            data-img="assets/esponja-silicone.jpeg"
-            >Adicionar item ao carrinho
-          </button>
-        </figcaption>
-      </figure>       
-    </section>
-  </main>  
+            <figure data-categoria="maquiagem" data-preco="10.00">
+                <img src="assets/batom.jpeg" alt="Batom">
+                <figcaption>
+                    <h3>BATOM</h3>
+                    <p>descrição do produto.</p>
+                    <p class="invisivel">→</p>
+                    <p class="invisivel">→</p>
+                    <span>R$: 10.00</span>
+                    <button class="btn-add-carrinho" data-id="4" data-nome="Batom" data-preco="10.00"
+                        data-img="assets/batom.jpeg">Adicionar item ao carrinho
+                    </button>
 
-  <footer class="rodaPe" id="footer-placeholder"></footer>
+                </figcaption>
+            </figure>
 
-  <script src="js/carrinho.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/home.js"></script>
+            <figure data-categoria="maquiagem" data-preco="30.00">
+                <img src="assets/paleta.jpeg" alt="Paleta">
+                <figcaption>
+                    <h3>PALETA</h3>
+                    <p>BLUSH</p>
+                    <p>ILUMINADOR</p>
+                    <p>CONTORNO</p>
+
+                    <span>R$: 30.00</span>
+                    <button class="btn-add-carrinho" data-id="5" data-nome="Paleta" data-preco="30.00"
+                        data-img="assets/paleta.jpeg">
+                        Adicionar item ao carrinho
+                    </button>
+                </figcaption>
+            </figure>
+
+            <figure data-categoria="maquiagem" data-preco="20.00">
+                <img src="assets/rimel.jpeg" alt="rimel">
+                <figcaption>
+                    <h3>RIMEL</h3>
+                    <p class="invisivel">→</p>
+                    <p class="invisivel">→</p>
+                    <p class="invisivel">→</p>
+                    <span>R$: 20.00</span>
+                    <button class="btn-add-carrinho" data-id="6" data-nome="rimel" data-preco="20.00"
+                        data-img="assets/rimel.jpeg">Adicionar item ao carrinho
+                    </button>
+
+                </figcaption>
+            </figure>
+
+            <figure data-categoria="skincare" data-preco="20.00">
+                <img src="assets/sobonete-facial.jpeg" alt="Sabonete Facial">
+                <figcaption>
+                    <h3>SABONETE FACIAL</h3>
+                    <p>CHEIRINHO DE TUTTI FRUTTI</p>
+                    <p class="invisivel">→</p>
+                    <p class="invisivel">→</p>
+                    <span>R$: 20.00</span>
+                    <button class="btn-add-carrinho" data-id="7" data-nome="Sabonete Facial" data-preco="20.00"
+                        data-img="assets/sobonete-facial.jpeg">Adicionar item ao carrinho
+                    </button>
+
+                </figcaption>
+            </figure>
+
+            <figure data-categoria="skincare" data-preco="10.00">
+                <img src="assets/esponja-silicone.jpeg" alt="Esponja de silicone">
+                <figcaption>
+                    <h3>ESPONJA DE SILICONE</h3>
+                    <p>LIMPEZA FACIAL POUVO</p>
+                    <p class="invisivel">→</p>
+                    <p class="invisivel">→</p>
+                    <span>R$: 10.00</span>
+                    <button class="btn-add-carrinho" data-id="8" data-nome="Esponja Silicone" data-preco="10.00"
+                        data-img="assets/esponja-silicone.jpeg">Adicionar item ao carrinho
+                    </button>
+                </figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <footer class="rodaPe" id="footer-placeholder"></footer>
+
+    <a href="https://wa.me/551123456789?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos."
+        class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/carrinho.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/home.js"></script>
 </body>
-</html>
 
+</html>

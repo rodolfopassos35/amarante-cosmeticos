@@ -28,6 +28,6 @@ async function incluirComponente(id, url) {
 }
 
 // Chamada para incluir os componentes
-incluirComponente("header-placeholder", "componentes/header.html");
-incluirComponente("footer-placeholder", "componentes/footer.html");
+incluirComponente("header-placeholder", "components/header.html");
+incluirComponente("footer-placeholder", "components/footer.html");
 

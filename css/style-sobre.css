@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
 .nossaHistoria {
     width: 100%;
     height: 300px;
@@ -13,17 +14,20 @@
     flex-direction: column;
     justify-content: center;
 }
+
 .pagina-sobre .nossaHistoria h1 {
     font-size: 3rem;
     font-style: italic;
-    color:#000000;
+    color: #000000;
     margin-bottom: 1rem;
 }
+
 .pagina-sobre .nossaHistoria p {
     font-size: 1.5rem;
     max-width: 800px;
     margin: 0 auto;
 }
+
 .sobreEmpresa {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -33,6 +37,7 @@
     margin: 0 auto;
     box-sizing: border-box;
 }
+
 .sobre-valores {
     height: auto;
 }
@@ -43,13 +48,15 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
 .sobreNos h2 {
     font-size: 2rem;
 }
+
 .sobreNos p {
     font-size: 1rem;
     letter-spacing: 2px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .galeria-sobre {
@@ -65,20 +72,23 @@
 
 .imagem-galeria img {
     width: 100%;
-    height: 250px; /* Altura fixa uniforme */
+    height: 250px;
+    /* Altura fixa uniforme */
     object-fit: cover;
     border-radius: 10px;
     display: block;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .nossosProdutos {
     width: max-content;
     padding: 15px;
     text-decoration: none;
-    border-radius: 50px ;
+    border-radius: 50px;
     background-color: #e72c6e;
-    color:#fff;
+    color: #fff;
 }
+
 .sobre-valores {
     height: max-content;
 }
@@ -90,23 +100,29 @@
     margin: 0 auto;
     text-align: center;
 }
-.pagina-sobre .nossosValores > div {
+
+.pagina-sobre .nossosValores>div {
     width: calc(100% / 3);
 }
-.pagina-sobre .nossosValores > div:hover {
-    box-shadow:2px 5px 8px -3px rgba(0, 0, 0, 0.3);
+
+.pagina-sobre .nossosValores>div:hover {
+    box-shadow: 2px 5px 8px -3px rgba(0, 0, 0, 0.3);
 }
+
 .pagina-sobre .nossosValores :nth-child(1n) {
     margin: 15px;
 }
+
 .pagina-sobre .nossosValores h5 {
     font-size: 1.3rem;
     color: #000000;
 }
+
 .pagina-sobre .nossosValores p {
     font-size: 1rem;
     color: #807979;
 }
+
 .pagina-sobre .nossosValores img {
     width: 60px;
     border-radius: 50px;
@@ -145,47 +161,63 @@
     line-height: 1.6;
     font-size: 1rem;
 }
+
 @media (max-width:768px) {
     .sobre-valores {
         height: 500px;
         width: 100%;
     }
+
     .sobre-valores h4 {
         margin-bottom: 35px;
     }
-    .nossosValores > div {
-        min-width: 200px;
-        max-width: 205px;
-        min-height: 430px;
-        max-height: 500px;
+
+    .nossosValores>div {
+        min-width: 90%;
+        max-width: 100%;
+        min-height: auto;
+
     }
 }
+
 @media (max-width:480px) {
     .sobreEmpresa {
         height: auto;
         display: flex;
         flex-direction: column;
     }
-    .sobreEmpresa > div {
+
+    .sobreEmpresa>div {
         padding: 20px;
         height: auto;
         text-align: start;
     }
-    .sobreEmpresa  h2 {
+
+    .sobreEmpresa h2 {
         padding-bottom: 10px;
     }
+
     .sobreEmpresa p {
         line-height: 25px;
         margin-bottom: 20px;
     }
+
     .sobre-valores {
         height: auto;
         display: flex;
         flex-direction: column;
     }
+
+    .sobre-valores p {
+        padding: 20px;
+        line-height: 2rem;
+        text-align: start;
+        letter-spacing: 2px;
+    }
+
     .sobre-valores .nossosValores {
         width: 100%;
         height: auto;
     }
-    
+
 }

@@ -1,13 +1,16 @@
 /* Sidebar */
 
 .sidebarProdutos {
-    flex-shrink: 0; /* Impede que a sidebar encolha se não houver espaço */
-    width: 220px; /* Largura fixa da sua sidebar */
+    flex-shrink: 0;
+    /* Impede que a sidebar encolha se não houver espaço */
+    width: 220px;
+    /* Largura fixa da sua sidebar */
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .sidebarProdutos h2 {
     margin: 10px;
 }
@@ -37,6 +40,7 @@
 .sidebarProdutos ul li a:hover {
     color: #007bff;
 }
+
 .sidebarProdutos input[type="text"],
 .sidebarProdutos input[type="range"] {
     width: 100%;
@@ -50,22 +54,31 @@
 /* --- Layout Principal da Página de Produtos (entre sidebar e área de produtos) --- */
 .pagina-produtos {
     display: flex;
-    max-width: 1200px; /* Exemplo: define uma largura máxima para o conteúdo principal */
-    margin: 20px auto; /* Centraliza a página e dá margem no topo/base */
-    gap: 30px; /* Espaço entre a sidebar e a área de produtos */
-    padding: 0 15px; /* Adiciona um pequeno padding nas laterais */
+    max-width: 1200px;
+    /* Exemplo: define uma largura máxima para o conteúdo principal */
+    margin: 20px auto;
+    /* Centraliza a página e dá margem no topo/base */
+    gap: 30px;
+    /* Espaço entre a sidebar e a área de produtos */
+    padding: 0 15px;
+    /* Adiciona um pequeno padding nas laterais */
     height: auto;
 }
 
 /* --- O Contêiner das Imagens (onde as 'figure's quebrarão a linha) --- */
 .pagina-produtos .agrupaProdutosDestaque {
-    flex-grow: 1; /* Permite que este elemento ocupe o espaço restante ao lado da sidebar */
+    flex-grow: 1;
+    /* Permite que este elemento ocupe o espaço restante ao lado da sidebar */
 
-    /* ***** AQUI ESTÁ A CHAVE DA SOLUÇÃO ***** */
-    display: flex;      /* Torna este contêiner flexível */
-    flex-wrap: wrap;    /* Permite que os filhos (as 'figure's) quebrem para a próxima linha */
-    justify-content: flex-start; /* Alinha as figuras à esquerda */
-    gap: 20px;          /* Espaçamento entre as figuras */
+
+    display: flex;
+    /* Torna este contêiner flexível */
+    flex-wrap: wrap;
+    /* Permite que os filhos (as 'figure's) quebrem para a próxima linha */
+    justify-content: flex-start;
+    /* Alinha as figuras à esquerda */
+    gap: 20px;
+    /* Espaçamento entre as figuras */
     height: auto;
 }
 
@@ -80,15 +93,16 @@
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* --- O Contêiner das Imagens (onde as 'figure's quebrarão a linha) --- */
+
 .pagina-produtos .agrupaProdutosDestaque {
-    flex-grow: 1; /* Permite que este elemento ocupe o espaço restante ao lado da sidebar */
+    flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; 
+    justify-content: space-around;
     gap: 20px;
     width: calc(100% /3);
 }
@@ -96,13 +110,19 @@
 /* --- Estilos das 'figure's Individuais (CORREÇÃO AQUI!) --- */
 .pagina-produtos .agrupaProdutosDestaque figure {
     flex: 1 1 250px;
-    box-sizing: border-box; 
-    text-align: center; 
+    box-sizing: border-box;
+    text-align: center;
+    height: auto;
+}
+
+.pagina-produtos .agrupaProdutosDestaque .invisivel {
+    visibility: hidden;
 }
 
 .pagina-produtos .agrupaProdutosDestaque figure img {
     height: 230px;
-    width: 100%; /* Imagem preenche a largura da figure */
+    width: 100%;
+    /* Imagem preenche a largura da figure */
     object-fit: cover;
     border-radius: 20px;
 }
@@ -113,10 +133,17 @@
     color: #333;
 }
 
+.pagina-produtos .agrupaProdutosDestaque figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 200px;
+}
+
 .pagina-produtos .agrupaProdutosDestaque figure p {
     font-size: 0.9em;
     color: #666;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .pagina-produtos .agrupaProdutosDestaque figure button {
@@ -128,8 +155,25 @@
     border-radius: 5px;
     transition: background-color 0.3s ease;
     width: 95%;
+    border: none;
 }
 
 .pagina-produtos .agrupaProdutosDestaque figure button:hover {
     background-color: #ff0059;
+}
+
+.pagina-produtos .agrupaProdutosDestaque .invisivel {
+    visibility: hidden;
+}
+
+
+@media(max-width: 480px) {
+    .pagina-produtos .agrupaProdutosDestaque figure {
+        min-width: 220px;
+        max-width: 100%;
+    }
+
+    .pagina-produtos .agrupaProdutosDestaque figcaption {
+        box-shadow: 0 0 1px #6666666b;
+    }
 }
