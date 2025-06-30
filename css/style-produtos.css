@@ -147,15 +147,23 @@
 }
 
 .pagina-produtos .agrupaProdutosDestaque figure button {
-    display: inline-block;
+    width: 100%;
+    padding: 10px;
     background-color: #e72c6e;
-    color: white;
-    padding: 8px 15px;
+    color: #fff;
     text-decoration: none;
+    bottom: 5px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-    width: 95%;
-    border: none;
+    text-align: center;
+    border-style: none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pagina-produtos .agrupaProdutosDestaque figcaption button i {
+    font-size: 22px;
 }
 
 .pagina-produtos .agrupaProdutosDestaque figure button:hover {

@@ -32,7 +32,7 @@ let valorFreteAtual = 0; // Variável para armazenar o valor do frete calculado
 
 // --- NOVA FUNÇÃO PARA ADICIONAR PRODUTOS ---
 // Torna esta função global para ser acessível de outros scripts
-window.adicionarProdutoAoCarrinho = function (novoProduto) {
+/* window.adicionarProdutoAoCarrinho = function (novoProduto) {
   let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   const produtoExistenteIndex = carrinho.findIndex(item => item.id === novoProduto.id);
 
@@ -61,8 +61,40 @@ function alterarQuantidade(index, delta) {
     carrinho.splice(index, 1); // Remove se a quantidade for zero ou menos
   }
 
-  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  localStorage.setItem('carrinho', JSON.stringify(carrinho)); 
   exibirCarrinho(); // Atualiza a exibição
+}*/
+function mostrarMensagemProdutoAdicionado(nomeProduto) {
+  const mensagem = document.createElement('div');
+  mensagem.classList.add('mensagem-sucesso'); // Certifique-se de ter CSS para esta classe!
+  mensagem.textContent = `${nomeProduto} foi adicionado ao carrinho!`;
+
+  document.body.appendChild(mensagem);
+
+  // Remove a mensagem após 3 segundos
+  setTimeout(() => {
+    mensagem.remove();
+  }, 3000);
+}
+
+// Função principal para adicionar um produto ao carrinho
+// Tornamos ela global para que possa ser chamada de outros arquivos (como produtos.js)
+window.adicionarProdutoAoCarrinho = function (produto) {
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+  // Verifica se o produto já está no carrinho
+  const index = carrinho.findIndex(item => item.id === produto.id);
+
+  if (index !== -1) {
+    carrinho[index].quantidade += 1; // Se já existir, aumenta a quantidade
+  } else {
+    carrinho.push(produto); // Se não, adiciona novo produto
+  }
+
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+  // Chama a função para exibir a mensagem de sucesso
+  mostrarMensagemProdutoAdicionado(produto.nome);
 }
 
 function removerItem(index) {

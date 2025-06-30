@@ -221,6 +221,14 @@
     border-radius: 5px;
     text-align: center;
     border-style: none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.index-principal .agrupaProdutosDestaque figcaption button i {
+    font-size: 22px;
 }
 
 .index-principal .agrupaProdutosDestaque figcaption button:hover {
@@ -462,6 +470,74 @@
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
+}
+
+/* css/style.css (ou o seu CSS principal) */
+
+.mensagem-sucesso {
+    position: fixed;
+    /* Fixa na tela */
+    top: 20px;
+    /* Distância do topo */
+    left: 50%;
+    /* Começa no meio */
+    transform: translateX(-50%);
+    /* Centraliza horizontalmente */
+    background-color: #4CAF50;
+    /* Fundo verde */
+    color: white;
+    /* Texto branco */
+    padding: 12px 25px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Cantos arredondados */
+    z-index: 1000;
+    /* Garante que fique acima de outros elementos */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    font-family: 'Arial', sans-serif;
+    /* Fonte legível */
+    font-size: 16px;
+    animation: fadeOut 3.5s forwards;
+    /* Animação de fade-out */
+    opacity: 1;
+    /* Inicia visível */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    /* Mantém visível por mais tempo */
+    100% {
+        opacity: 0;
+        display: none;
+    }
+
+    /* Desaparece */
+}
+
+/* Opcional: Se quiser uma animação de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.mensagem-sucesso {
+    /* ... outras propriedades ... */
+    animation: fadeIn 0.5s ease-out forwards, fadeOut 3.5s forwards;
 }
 
 
@@ -917,10 +993,9 @@
 
     .index-principal .agrupaProdutosDestaque {
         display: flex;
-        overflow-x: auto;
         gap: 1rem;
         padding: 1rem 0;
-        scroll-behavior: smooth;
+        height: auto;
     }
 
     .cabecalhoProdutosDestaque {
