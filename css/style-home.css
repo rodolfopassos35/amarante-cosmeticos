@@ -1039,14 +1039,13 @@
 
     .index-principal .agrupaProdutosDestaque figcaption {
         overflow: hidden;
-        /* Esconde excesso */
         text-overflow: ellipsis;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex: 1;
         box-shadow: 0 0 1px #6666666c;
-
+        height: max-content;
     }
 
     .index-principal .agrupaProdutosDestaque figcaption p {

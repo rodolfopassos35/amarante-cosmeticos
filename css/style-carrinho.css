@@ -11,7 +11,9 @@
   margin: 0.5rem 0;
 }
 
-.btn-menos, .btn-mais, .remover {
+.btn-menos,
+.btn-mais,
+.remover {
   background-color: #cc0000;
   color: white;
   border: none;
@@ -19,15 +21,18 @@
   cursor: pointer;
 }
 
-.btn-mais, .btn-menos {
+.btn-mais,
+.btn-menos {
   background-color: #007bff;
 }
+
 .carrinhoCompras {
-    height: auto;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 50px auto;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px auto;
 }
+
 .mensagem-sucesso {
   position: fixed;
   bottom: 20px;
@@ -37,41 +42,60 @@
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   animation: fadeInOut 3s ease-in-out;
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(10px); }
-  10% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(10px); }
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
+
 /* Estilos Gerais (exemplo) */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Uma fonte moderna e legível */
-  background-color: #f4f7f6; /* Um cinza claro e suave */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Uma fonte moderna e legível */
+  background-color: #f4f7f6;
+  /* Um cinza claro e suave */
   color: #333;
   margin: 0;
   padding: 0;
 }
 
 .container-carrinho {
-  display: flex; /* Usar flexbox para o layout principal */
-  gap: 30px; /* Espaço entre as colunas */
-  max-width: 1200px; /* Largura máxima do conteúdo */
-  margin: 40px auto; /* Centraliza o conteúdo na página */
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
   padding: 20px;
-  align-items: flex-start; /* Alinha os itens ao topo */
+  align-items: flex-start;
 }
 
 /* Seção de Itens do Carrinho */
 .secao-itens-carrinho {
-  flex: 2; /* Ocupa mais espaço */
+  width: 100%;
+  flex: 2;
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   height: auto;
 }
 
@@ -83,7 +107,7 @@ body {
 }
 
 /* Estilos para um item de exemplo dentro da lista (você precisará adaptar isso) */
-.lista-itens-carrinho .item-carrinho { /* Exemplo: se cada item tiver a classe 'item-carrinho' */
+.lista-itens-carrinho .item-carrinho {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -121,153 +145,183 @@ body {
 
 .lista-itens-carrinho .item-carrinho .preco-item {
   font-weight: bold;
-  color: #007bff; /* Ou a cor principal da sua marca */
+  color: #007bff;
+  /* Ou a cor principal da sua marca */
   font-size: 1.1em;
 }
+
 .btn-remover-item {
-    background-color: #dc3545; /* Vermelho para indicar remoção */
-    color: white;
-    border: none;
-    border-radius: 5px; /* Bordas levemente arredondadas */
-    padding: 8px 12px; /* Espaçamento interno */
-    cursor: pointer; /* Indica que é clicável */
-    font-size: 0.9em; /* Tamanho da fonte um pouco menor */
-    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
-    margin-left: 10px; /* Espaçamento à esquerda para separar do preço */
-    /* Adicione estas linhas para alinhar melhor se o layout do item estiver flex */
-    align-self: center; /* Alinha verticalmente no centro se o pai for flexbox */
-    flex-shrink: 0; /* Impede que o botão encolha em layouts flex */
+  background-color: #dc3545;
+  /* Vermelho para indicar remoção */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  /* Bordas levemente arredondadas */
+  padding: 8px 12px;
+  /* Espaçamento interno */
+  cursor: pointer;
+  /* Indica que é clicável */
+  font-size: 0.9em;
+  /* Tamanho da fonte um pouco menor */
+  transition: background-color 0.3s ease;
+  /* Transição suave ao passar o mouse */
+  margin-left: 10px;
+  /* Espaçamento à esquerda para separar do preço */
+  /* Adicione estas linhas para alinhar melhor se o layout do item estiver flex */
+  align-self: center;
+  /* Alinha verticalmente no centro se o pai for flexbox */
+  flex-shrink: 0;
+  /* Impede que o botão encolha em layouts flex */
 }
 
 /* --- Efeito ao passar o mouse (hover) --- */
 .btn-remover-item:hover {
-    background-color: #c82333; /* Um vermelho um pouco mais escuro no hover */
+  background-color: #c82333;
+  /* Um vermelho um pouco mais escuro no hover */
 }
 
 /* --- Estilo para o botão quando clicado (active) --- */
 .btn-remover-item:active {
-    background-color: #bd2130; /* Um vermelho ainda mais escuro */
-    transform: translateY(1px); /* Pequeno efeito de "afundar" */
+  background-color: #bd2130;
+  /* Um vermelho ainda mais escuro */
+  transform: translateY(1px);
+  /* Pequeno efeito de "afundar" */
 }
 
 /* --- Estilo para desabilitar o botão (opcional, se você quiser desabilitá-lo em algum momento) --- */
 .btn-remover-item:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 
 /* Resumo do Carrinho (Sidebar) */
 .resumo-carrinho {
-    flex: 1; /* Ocupa menos espaço */
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-  gap: 25px; /* Espaço entre as seções dentro do resumo */
+  flex: 1;
+  /* Ocupa menos espaço */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  /* Espaço entre as seções dentro do resumo */
 }
 
 .resumo-carrinho h3 {
-    font-size: 1.5em;
-    color: #2c3e50;
-    margin-top: 0;
-    margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .calculo-frete-container label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
 }
 
 .calculo-frete-container input[type="text"] {
-    width: calc(100% - 20px);
-    padding: 12px 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1em;
-    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+  width: calc(100% - 20px);
+  padding: 12px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing: border-box;
+  /* Garante que padding não aumente a largura total */
 }
 
 .calculo-frete-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff; /* Cor primária */
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  /* Cor primária */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .calculo-frete-container button:hover {
-    background-color: #0056b3; /* Tom mais escuro no hover */
+  background-color: #0056b3;
+  /* Tom mais escuro no hover */
 }
 
 .calculo-frete-container p {
-    margin-top: 15px;
-    font-weight: bold;
-  color: #4CAF50; /* Uma cor verde para o valor do frete */
+  margin-top: 15px;
+  font-weight: bold;
+  color: #4CAF50;
+  /* Uma cor verde para o valor do frete */
 }
 
 .total-carrinho {
-    text-align: right;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
+  text-align: right;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
 }
 
 .total-carrinho h3 {
-    font-size: 1.6em;
-    margin-bottom: 10px;
-    color: #2c3e50;
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  color: #2c3e50;
 }
 
 .total-carrinho #valor-total-carrinho {
-    font-size: 2em;
-    font-weight: bold;
-  color: #007bff; /* Ou a cor principal da sua marca */
+  font-size: 2em;
+  font-weight: bold;
+  color: #007bff;
+  /* Ou a cor principal da sua marca */
 }
 
 .acoes-carrinho {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.btn-primario, .btn-secundario {
-    padding: 15px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-    text-decoration: none; /* Se for um link */
+.btn-primario,
+.btn-secundario {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  /* Se for um link */
 }
 
 .btn-primario {
-    background-color: #28a745; /* Um verde para "Finalizar Compra" */
-    color: white;
+  background-color: #28a745;
+  /* Um verde para "Finalizar Compra" */
+  color: white;
 }
 
 .btn-primario:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
 .btn-secundario {
-    background-color: #dc3545; /* Um vermelho para "Limpar Carrinho" */
-    color: white;
+  background-color: #dc3545;
+  /* Um vermelho para "Limpar Carrinho" */
+  color: white;
 }
 
 .btn-secundario:hover {
-    background-color: #c82333;
-    transform: translateY(-2px);
+  background-color: #c82333;
+  transform: translateY(-2px);
 }
 
+@media(max-width:480px) {
+  .carrinho {
+    display: none;
+  }
+}
