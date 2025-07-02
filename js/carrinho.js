@@ -179,7 +179,7 @@ function ativarBotoes() {
 // --- NOVA FUNÇÃO PARA GERAR PEDIDO VIA WHATSAPP (GLOBAL) ---
 window.gerarPedidoWhatsApp = function () {
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  const numeroTelefone = '5519990152859'; // <-- COLOQUE SEU NÚMERO DE TELEFONE AQUI (com DDD e sem espaços/hífens)
+  const numeroTelefone = '5519991039624'; // <-- COLOQUE SEU NÚMERO DE TELEFONE AQUI (com DDD e sem espaços/hífens)
 
   if (carrinho.length === 0) {
     alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra.');
